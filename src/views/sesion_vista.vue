@@ -15,16 +15,16 @@
                                 {{ item }}
                             </v-tab>
                         </v-tabs>
-
                         <v-tabs-items v-model="tab">
                             <v-tab-item>
                                 <v-card flat>
-                                    <inicio_sesion_vista></inicio_sesion_vista>
+                                    <inicio_sesion_vista ></inicio_sesion_vista>
+
                                 </v-card>
                             </v-tab-item>
                             <v-tab-item>
                                 <v-card flat>
-                                    <registro_vista></registro_vista>
+                                    <registro_vista :tab.sync="tab"></registro_vista>
                                 </v-card>
                             </v-tab-item>
                         </v-tabs-items>
@@ -45,13 +45,12 @@ export default {
     registro_vista
 },
     data: () => ({
-        tab: null,
+        tab: 0,
         items: [
             'Inisio de Sesión', 'Registrarse',
         ],
 
     }),
-    methods: {},
 
 };
 </script>

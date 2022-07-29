@@ -4,29 +4,15 @@ import vuetify from './plugins/vuetify'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
-
-//importamos nuestro complemento keycloak
-//import authentication from "@/plugins/authentication"
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
+import Vuelidate from 'vuelidate'
 
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
-//inicializamos nuestro complemento keycloak
-/*Vue.use(authentication)
-
-Vue.$keycloak
-  .init({ onLoad: 'login-required', checkLoginIframe: false })
-  .then(() => {
-    new Vue({
-      vuetify,
-      router,
-      render: h => h(App)
-    }).$mount('#app')
-  })
-
-*/
-
+Vue.use(VueToast);
+Vue.use(Vuelidate)
 new Vue({
   vuetify,
   router,
