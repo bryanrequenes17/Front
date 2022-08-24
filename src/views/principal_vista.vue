@@ -28,15 +28,25 @@
 
                 </v-list-item-group>
             </v-list>
+<<<<<<< HEAD
             <!--agrgear este pedasito de codigo-->>
             <template v-slot:append>
                 <div class="pa-2" color="primary">
+=======
+<!--agrgear este pedasito de codigo-->>
+            <template v-slot:append>
+                <div class="pa-2"  color="primary">
+>>>>>>> c6666855510834cfbd57fd6fb5d1ef6ee5207ce7
                     <v-btn block @click="cerrar_sesion()">
                         Cerrar Sesion
                     </v-btn>
                 </div>
             </template>
+<<<<<<< HEAD
             <!--hasta aki-->>
+=======
+<!--hasta aki-->>
+>>>>>>> c6666855510834cfbd57fd6fb5d1ef6ee5207ce7
         </v-navigation-drawer>
 
         <v-app-bar app dark elevation="0" color="primary">
@@ -72,11 +82,16 @@ export default {
         usuario: "",
         menu: [
             { title: "Inicio", icon: "mdi-view-dashboard", to: { name: "Inicio" } },
+<<<<<<< HEAD
             { title: "Laboratorios", icon: "mdi-format-list-bulleted-square", to: { name: "Laboratorio" } },
             { title: "Actividades", icon: "mdi-clipboard-text", to: { name: "Actividad" } },
             { title: "Grupos", icon: "mdi-account-box", to: { name: "Grupo" } },
             { title: "Resultados", icon: "mdi-gavel", to: { name: "Resultado" } },
 
+=======
+            { title: "Actividades", icon: "mdi-account-box", to: { name: "Actividad" } },
+            { title: "Resultados", icon: "mdi-gavel", to: { name: "Resultado" } },
+>>>>>>> c6666855510834cfbd57fd6fb5d1ef6ee5207ce7
         ],
     }),
     mounted() {
@@ -89,7 +104,11 @@ export default {
         cerrar_sesion() {
             //esta funcion tambien sino, no va a  funcar el cerrar gg
             cooki.borrar_usuario();
+<<<<<<< HEAD
             this.$router.push({ name: 'Login' })
+=======
+            this.$router.push({ name: 'Login' }) 
+>>>>>>> c6666855510834cfbd57fd6fb5d1ef6ee5207ce7
         }
     },
     watch: {
