@@ -2,14 +2,15 @@
     <v-app>
         <v-navigation-drawer app v-model="drawer">
             <v-layout align-center>
-                    <v-list-item>
-                        <v-list-item-content>
-                            <v-list-item-title class="text-h6" style="font-size:2vh!important">
-                                {{usuario.usuario}}
-                            </v-list-item-title>
-                            <v-list-item-subtitle style="font-size:2vh!important">{{usuario.correo}}</v-list-item-subtitle>
-                        </v-list-item-content>
-                    </v-list-item>
+                <v-list-item>
+                    <v-list-item-content>
+                        <v-list-item-title class="text-h6" style="font-size:2vh!important">
+                            {{ usuario.usuario }}
+                        </v-list-item-title>
+                        <v-list-item-subtitle style="font-size:2vh!important">{{ usuario.correo }}
+                        </v-list-item-subtitle>
+                    </v-list-item-content>
+                </v-list-item>
             </v-layout>
             <v-divider></v-divider>
             <v-list dense nav>
@@ -27,12 +28,21 @@
 
                 </v-list-item-group>
             </v-list>
+            <!--agrgear este pedasito de codigo-->>
+            <template v-slot:append>
+                <div class="pa-2" color="primary">
+                    <v-btn block @click="cerrar_sesion()">
+                        Cerrar Sesion
+                    </v-btn>
+                </div>
+            </template>
+            <!--hasta aki-->>
         </v-navigation-drawer>
 
         <v-app-bar app dark elevation="0" color="primary">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-spacer></v-spacer>
-            <h1>CIS-UNL</h1>
+            <h1>CIS-UNL Laboratorio</h1>
             <v-spacer></v-spacer>
         </v-app-bar>
         <v-main>
@@ -56,23 +66,31 @@ export default {
 
     },
     data: () => ({
-        group:0,
+        group: 0,
         drawer: true,
         loading: true,
-        usuario:"",
+        usuario: "",
         menu: [
             { title: "Inicio", icon: "mdi-view-dashboard", to: { name: "Inicio" } },
-            { title: "Actividades", icon: "mdi-account-box", to:{name:"Actividad"} },
-            { title: "Resultados", icon: "mdi-gavel",to:{name:"Resultado"}  },
+            { title: "Laboratorios", icon: "mdi-format-list-bulleted-square", to: { name: "Laboratorio" } },
+            { title: "Actividades", icon: "mdi-clipboard-text", to: { name: "Actividad" } },
+            { title: "Grupos", icon: "mdi-account-box", to: { name: "Grupo" } },
+            { title: "Resultados", icon: "mdi-gavel", to: { name: "Resultado" } },
+
         ],
     }),
-    mounted(){
+    mounted() {
         this.usuario_iniciado();
     },
     methods: {
-        usuario_iniciado(){
+        usuario_iniciado() {
             this.usuario = cooki.get_usuario_iniciado();
         },
+        cerrar_sesion() {
+            //esta funcion tambien sino, no va a  funcar el cerrar gg
+            cooki.borrar_usuario();
+            this.$router.push({ name: 'Login' })
+        }
     },
     watch: {
         loading(val) {

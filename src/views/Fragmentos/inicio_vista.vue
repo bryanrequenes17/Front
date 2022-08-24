@@ -1,67 +1,34 @@
 <template>
-    <section>
-        <v-row>
-            <v-col v-for="item, i in actividades" :key="i">
-                <v-card class="mx-auto" max-width="400">
-                    <v-img class="white--text align-end" height="200px"
-                        src="https://www.tekcrispy.com/wp-content/uploads/2022/05/encuesta-sobrediagnostico-melanoma-portada-scaled.jpg">
-                        <v-chip class="ma-2" label>
-                            <v-card-title style="color: #000 !important;"> {{ item.nombre }}</v-card-title>
-                        </v-chip>
-                    </v-img>
-                    <v-card-subtitle class="pb-0">
-                        Descripción
-                    </v-card-subtitle>
-                    <v-card-text class="text--primary text-keft">
-                        <div>{{ item.descripcion }}</div>
-                    </v-card-text>
-                    <v-card-actions>
-                        <v-btn color="orange" text :to="{ name: item.nombre ,params: {id: item.id , intento:item.intento }}">
-                            Ver actividad
-                        </v-btn>
-                    </v-card-actions>
-                </v-card>
-            </v-col>
-        </v-row>
-    </section>
+    <v-carousel>
+        <v-carousel-item v-for="(item, i) in items" :key="i" :src="item.src" reverse-transition="fade-transition"
+            transition="fade-transition"></v-carousel-item>
+        <div class="font-weight-light grey--text text-h6 mb-2">
+            For the perfect meal
+        </div>
+        <h3 class="text-h4 font-weight-light orange--text mb-2">
+            QW cooking utensils
+        </h3>
+        <div class="font-weight-light text-h6 mb-2">
+            Our Vintage kitchen utensils delight any chef.<br>
+            Made of bamboo by hand
+        </div>
+    </v-carousel>
 </template>
-
 <script>
-import api from "../../Recursos/api";
 export default {
-    name: "inicio_vista",
-    components: {
-    },
-    data: () => ({
-        actividades: [],
-    }),
-    mounted() {
-        this.listar_actividad();
-    },
-    methods: {
-        async listar_actividad() {
-            try {
-                var response = await this.axios.post(api.listar_actividad, {});
-                if (response.data.tipo == "success") {
-                    var data = response.data.data.actividades;
-                    data.forEach(e => {
-                        if (e.estado) {
-                            this.actividades.push(e)
-                        }
-                    });
-                    //console.log(this.actividades);
-                }
-            } catch (error) {
-                this.$toast.open({
-                    message: error.statusText,
-                    type: "error",
-                    duration: 5000,
-                    position: "top-right",
-                    pauseOnHover: true,
-                });
-            }
+    data() {
+        return {
+            items: [
 
-        },
-    }
-};
+                {
+                    src: 'https://programacion.net/files/article/article_02106_.jpg',
+                },
+                {
+                    src: 'https://img.freepik.com/vector-gratis/fondo-ilustrado-laboratorio-quimica_52683-68249.jpg?w=2000',
+                },
+
+            ],
+        }
+    },
+}
 </script>

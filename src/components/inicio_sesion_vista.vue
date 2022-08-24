@@ -1,6 +1,6 @@
 <template>
     <section>
-        <v-container style="max-width:500px;">
+        <v-container class="transparente" style="max-width:500px;">
         <br>
             <v-row>
                 <v-col cols="12" sm="12" md="12">

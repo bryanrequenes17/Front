@@ -4,9 +4,9 @@
             <center>
                 <v-container fluid style="max-width: 800px;">
                     <v-card color="onrange">
-                        <v-card-title class="text-center justify-center py-6">
+                        <v-card-title class="text-center justify-center py-6 ">
                             <h1 class="font-weight-bold text-h2 basil--text">
-                                Melanomi
+                                Melanoma
                             </h1>
                         </v-card-title>
 
@@ -47,7 +47,7 @@ export default {
     data: () => ({
         tab: 0,
         items: [
-            'Inisio de Sesión', 'Registrarse',
+            'Inicio de Sesión', 'Registrarse',
         ],
 
     }),
