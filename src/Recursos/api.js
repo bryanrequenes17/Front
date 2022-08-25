@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 const path = "http://localhost:3000/api"
-=======
-const path = " http://localhost:3000/api"
->>>>>>> c6666855510834cfbd57fd6fb5d1ef6ee5207ce7
 export default{
     registrar_usuario: path+"/crea_estudiante",
     inisio_sesion:path+"/iniciar_sesion",
