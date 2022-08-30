@@ -6,7 +6,8 @@
 
 <style scoped>
 /* Helper classes */
-#app{
-  background: url("");
+#app {
+  background: url("./assets/wall-wallpaper-concrete-colored-painted-textured-concept.jpg");
+  
 }
 </style>
